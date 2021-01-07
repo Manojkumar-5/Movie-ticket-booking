@@ -25,7 +25,7 @@ async login(@Res() res, @Body() userDTO:UserDTO){
 
 @Get('/users')
 async users(@Res() res){
-    const users=await this.ticketService.closeTicket();
+    const users=await this.ticketService.users();
    res.send(users);
 }
 
