@@ -70,7 +70,7 @@ export class TicketService {
             if(status){
                 return res.status(400).json("Seat already booked!!")
             }
-            ticket= this.ticketModel.update({seatnumber},{$set:{"isbooked":true,"email":email}});       
+            ticket= this.ticketModel.updateMany({seatnumber},{$set:{"isbooked":true,"email":email}});       
          return res.status(201).json({ message: "ticket added succesfully!!" });
             }
             catch (err) {
