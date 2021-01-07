@@ -12,21 +12,21 @@ constructor(private ticketService:TicketService) {}
 @Post('/register')
 async register(@Res() res, @Body() userDTO:UserDTO){
     const newUser=await this.ticketService.register(userDTO,res);
-    res.send(newUser);
+     res.send(newUser);
 }
 
 @Post('/login')
 async login(@Res() res, @Body() userDTO:UserDTO){
     const loginUser=await this.ticketService.login(userDTO,res);
-     res.send(loginUser);
+    res.send(loginUser);
 }
 
 
 
 @Get('/users')
-async users(){
+async users(@Res() res){
     const users=await this.ticketService.closeTicket();
-    res.send(users);
+   res.send(users);
 }
 
 
@@ -39,13 +39,13 @@ async addTicket(@Res() res ,@Body() ticketDTO:TicketDTO){
 
 }
 @Get('/status/open')
-async openTicket(){
+async openTicket(@Res() res){
     const open=await this.ticketService.openTicket();
     res.send(open);
 }
 
 @Get('/status/close')
-async closeTicket(){
+async closeTicket(@Res() res){
     const close=await this.ticketService.closeTicket();
     res.send(close);
 }
