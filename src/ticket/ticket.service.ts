@@ -70,8 +70,7 @@ export class TicketService {
             if(status){
                 return res.status(400).json("Seat already booked!!")
             }
-            ticket= await this.ticketModel.insertMany({"seatnumber":seatnumber,"isbooked":true,"email":email});
-        //ticket.save();
+            ticket= this.ticketModel.update({seatnumber},{$set:{"isbooked":true,"email":email}});       
          return res.status(201).json({ message: "ticket added succesfully!!" });
             }
             catch (err) {
